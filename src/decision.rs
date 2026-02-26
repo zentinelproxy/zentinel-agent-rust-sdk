@@ -2,7 +2,8 @@
 //!
 //! Provides an ergonomic way to construct agent responses.
 
-use zentinel_agent_protocol::{AgentResponse, AuditMetadata, BodyMutation, Decision as ProtocolDecision, HeaderOp, PROTOCOL_VERSION};
+use zentinel_agent_protocol::{AgentResponse, AuditMetadata, BodyMutation, Decision as ProtocolDecision, HeaderOp};
+use zentinel_agent_protocol::v2::PROTOCOL_VERSION_2;
 use std::collections::HashMap;
 
 /// A builder for constructing agent decisions.
@@ -311,7 +312,7 @@ impl Decision {
         let response_headers = self.build_response_mutations();
 
         AgentResponse {
-            version: PROTOCOL_VERSION,
+            version: PROTOCOL_VERSION_2,
             decision,
             request_headers,
             response_headers,

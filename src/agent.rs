@@ -7,8 +7,8 @@ use crate::{Decision, Request, Response};
 use async_trait::async_trait;
 use zentinel_agent_protocol::{
     AgentResponse, Decision as ProtocolDecision, GuardrailInspectEvent, GuardrailResponse,
-    PROTOCOL_VERSION,
 };
+use zentinel_agent_protocol::v2::PROTOCOL_VERSION_2;
 use serde::de::DeserializeOwned;
 use std::collections::HashMap;
 use std::sync::Arc;
@@ -207,7 +207,7 @@ impl<A: Agent> zentinel_agent_protocol::AgentHandler for AgentHandler<A> {
         match self.agent.on_configure(event.config).await {
             Ok(()) => AgentResponse::default_allow(),
             Err(msg) => AgentResponse {
-                version: PROTOCOL_VERSION,
+                version: PROTOCOL_VERSION_2,
                 decision: ProtocolDecision::Block {
                     status: 500,
                     body: Some(msg),
@@ -328,7 +328,7 @@ impl<A: Agent> zentinel_agent_protocol::AgentHandler for AgentHandler<A> {
             .collect();
 
         AgentResponse {
-            version: PROTOCOL_VERSION,
+            version: PROTOCOL_VERSION_2,
             decision: ProtocolDecision::Allow,
             request_headers: vec![],
             response_headers: vec![],
