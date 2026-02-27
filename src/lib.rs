@@ -114,6 +114,7 @@ pub mod testing;
 mod tests {
     use super::prelude::*;
 
+    #[allow(dead_code)]
     struct ExampleAgent;
 
     #[async_trait]
@@ -129,12 +130,12 @@ mod tests {
             }
 
             // Check for required header
-            if request.path_starts_with("/api") {
-                if request.header("x-api-key").is_none() {
-                    return Decision::unauthorized()
-                        .with_body("API key required")
-                        .with_tag("missing-api-key");
-                }
+            if request.path_starts_with("/api")
+                && request.header("x-api-key").is_none()
+            {
+                return Decision::unauthorized()
+                    .with_body("API key required")
+                    .with_tag("missing-api-key");
             }
 
             // Add request context
