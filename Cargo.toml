@@ -1,11 +1,11 @@
 [package]
 name = "zentinel-agent-sdk"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 authors = ["Raskell <hello@raskell.io>"]
 description = "High-level SDK for building Zentinel proxy agents"
 license = "Apache-2.0"
-repository = "https://github.com/zentinelproxy/zentinel-agent-sdk"
+repository = "https://github.com/zentinelproxy/zentinel-agent-rust-sdk"
 documentation = "https://docs.rs/zentinel-agent-sdk"
 keywords = ["zentinel", "proxy", "agent", "sdk", "waf"]
 categories = ["network-programming", "web-programming"]
