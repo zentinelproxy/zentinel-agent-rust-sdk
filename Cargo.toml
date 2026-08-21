@@ -13,7 +13,7 @@ readme = "README.md"
 
 [dependencies]
 # Core protocol (re-exported)
-zentinel-agent-protocol = "0.5"
+zentinel-agent-protocol = "0.6"
 
 # Async runtime
 tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "sync"] }
