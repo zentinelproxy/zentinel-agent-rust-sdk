@@ -70,7 +70,10 @@ mod runner;
 #[cfg(feature = "v2")]
 pub mod v2;
 
-pub use agent::{Agent, AgentHandler, ConfigurableAgent, ConfigurableAgentExt};
+pub use agent::{
+    Agent, AgentHandler, ConfigurableAgent, ConfigurableAgentExt, REQUEST_CACHE_MAX_AGE,
+    REQUEST_CACHE_MAX_ENTRIES,
+};
 pub use decision::{decisions, Decision};
 pub use request::Request;
 pub use response::Response;
